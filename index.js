@@ -5,36 +5,25 @@ for(i=0; i<300; i++){
     var randX = Math.floor(Math.random()*starrybg.clientWidth-100) +50
     var randY = Math.floor(Math.random()*starrybg.clientHeight-100) + 50
     var randSize = Math.floor(Math.random()*5)-3
-
     shadowList.push([`${randX}px ${randY}px 0px ${randSize}px white`])
-    // 10px 0px 0px -5px white;
 }
-// console.log(shadowList.join(', '))
+
 blurrystar.style.boxShadow = shadowList.join(', ')
-// blurrystar.style.width = `${randSize}px`
-// blurrystar.style.height = `${randSize}px`
- 
-
-
 const scaler = document.querySelectorAll('.scaler')
 let scaleValue = 1
+
 scaler.forEach((button,i)=>{
     button.addEventListener('mouseup',e=>{
         e.preventDefault()
-        // up
         if(i===0) 
         {
-            scaleValue += .2
+            scaleValue += .2;
             starrybg.style.transform = `scale(${scaleValue},${scaleValue})`
-
         }
-        // down
         else
         {
-
             scaleValue -= .2
             starrybg.style.transform = `scale(${scaleValue},${scaleValue})`
-
         }
     })
 })
@@ -58,7 +47,7 @@ let newtext3 =['Humans have redefined the "net" and how we interact with it.',
 const foreignText = "!@#$%^&*()_+-=?/\[]{};:'<>,."
 
 
-// Create foreign Array with respect to new text's length
+// Create foreign Array with respect to 'new text' length
 const arrayCreator = (txt) =>{
     const foreignText = "!@#$%^&*()_+-=?/\[]{};:'<>,."
 
@@ -96,15 +85,12 @@ const glitchEffect = (selector,txt,iter) =>{
 
     setTimeout(()=>{
         const arrayCreate = arrayCreator(txt).join('')
-        // change text Content
+        // change text content
         text[selector].textContent = txt.slice(0,selector == 0 ? a : selector == 1 ? b : c) + arrayCreate.slice(selector == 0 ? a : selector == 1 ? b : c,txt.length)
         // change loop limit
-        if(selector == 0)
-            a++
-        else if(selector == 1)
-            b++
-        else if(selector == 2)
-            c++
+        if(selector == 0) a++
+        else if(selector == 1) b++
+        else if(selector == 2)  c++
 
         if((selector == 0 ? a : selector == 1 ? b : c)<=txt.length){ 
             glitchEffect(selector,txt,iter)
@@ -133,22 +119,6 @@ const repeater = (nxt) => {
 }
 repeater(next)
 
-
-//CHARACTER CHANGER
-const btn = document.querySelectorAll('.charbtn')
-btn.forEach((button,i)=>{
-    button.addEventListener('mouseup',(e)=>{
-        e.preventDefault()
-        if(i==0){
-            console.log("moving left")
-        }
-        else{
-            console.log("moving right")
-
-        }
-    })
-})
-
 const left = document.querySelector('.left')
 const right = document.querySelector('.right')
 const char_ctn = document.querySelector('.characters__container')
@@ -156,20 +126,10 @@ const chars = document.querySelector('.characters')
 const char = document.querySelectorAll('.character')
 
 
-window.addEventListener('resize',()=>{
-    const stbg = document.querySelector('.starry__bg')
-    stbg.style.width = `${window.innerWidth}px`
-    stbg.style.height = `${window.innerHeight}px`
-    char_ctn.scrollTo(0,0)
-    current_char = 0
-})
-
 let current_char = 0
 left.addEventListener('mouseup',()=>{
-    console.log(char_ctn)
-
     char_ctn.style.pointerEvents = 'none'
-    setTimeout(() => char_ctn.style.pointerEvents = 'fill', 500)
+    setTimeout(() => char_ctn.style.pointerEvents = 'fill', 750)
     if(current_char == 0){
         current_char = char.length-1
         chars.style.scrollBehavior = 'unset'
@@ -185,7 +145,7 @@ left.addEventListener('mouseup',()=>{
 })
 right.addEventListener('mouseup',()=>{
     char_ctn.style.pointerEvents = 'none'
-    setTimeout(() => char_ctn.style.pointerEvents = 'fill', 500)
+    setTimeout(() => char_ctn.style.pointerEvents = 'fill', 750)
     if(current_char == char.length-2){
         current_char=0
         chars.scrollBy(char[0].getBoundingClientRect().width,0)
@@ -224,11 +184,6 @@ const scrollbtn = document.querySelectorAll('.scroll__button')
 let activeColor = 'hsl(297,100%,87%)'
 let inactiveColor = 'hsl(300,13%,13%)'
 
-// console.log(starrybg.style.transform.split(/[a-z(), ]/g).filter(e=>e)[1])
-
-
-// let size =  parseFloat(starrybg.style.transform.split(/[a-z(), ]/g).filter(e=>e))
-// console.log(size)
 window.addEventListener('wheel', function(event){
     if(timer !== null) {
         clearTimeout(timer);        
@@ -275,7 +230,6 @@ window.addEventListener('wheel', function(event){
 
 scrollbtn.forEach((item,i)=>{
     item.addEventListener('mouseup',()=>{
-        console.log('here')
         let beforesect = currentsect
         currentsect = i
         if(beforesect!=currentsect){
@@ -300,7 +254,7 @@ gpscroll.forEach((scrl,i) => {
     scrl.addEventListener('mouseup',()=>{
 
         gameplay.style.pointerEvents = 'none'
-        setTimeout(() => gameplay.style.pointerEvents = 'fill', 500)
+        setTimeout(() => gameplay.style.pointerEvents = 'fill', 750)
         if(i==0){
             currentsong = currentsong!=0 ? currentsong-1 : currentsong 
             gameplaysongs.scrollBy(-gpsongs[0].getBoundingClientRect().width, 0)
@@ -312,31 +266,25 @@ gpscroll.forEach((scrl,i) => {
 
         if(currentsong==gpsongs.length-1){
             gpscroll[1].classList.add('end')
-            // gpscroll[1].style.color = 'grey'
-            // gpscroll[1].style.borderColor = 'grey'
-            // gpscroll[1].style.pointerEvents = 'none'
         }
         else if(currentsong==0){
             gpscroll[0].classList.add('end')
-
-            // gpscroll[0].style.color = 'grey'
-            // gpscroll[0].style.borderColor = 'grey'
-            // gpscroll[0].style.pointerEvents = 'none'
-
         }
         else{
             gpscroll[0].classList.remove('end')
             gpscroll[1].classList.remove('end')
 
-            // gpscroll[0].style.color = 'white'
-            // gpscroll[1].style.color = 'white'
-            // gpscroll[0].style.borderColor = 'white'
-            // gpscroll[1].style.borderColor = 'white'
-            // setTimeout(()=>{
-                // gpscroll[0].style.pointerEvents = 'fill'
-                // gpscroll[1].style.pointerEvents = 'fill'
-            // },500)
         }
 
     })
+})
+
+window.addEventListener('resize',()=>{
+    const stbg = document.querySelector('.starry__bg')
+    stbg.style.width = `${window.innerWidth}px`
+    stbg.style.height = `${window.innerHeight}px`
+    char_ctn.scrollTo(0,0)
+    gameplaysongs.scrollTo(0,0)
+    current_char = 0
+    currentsong = 0
 })
