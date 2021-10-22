@@ -140,7 +140,7 @@ left.addEventListener('mouseup',()=>{
     }
     else{
         current_char--
-        chars.scrollBy(-char[0].getBoundingClientRect().width-5,0)
+        chars.scrollBy(-char[0].getBoundingClientRect().width,0)
     }
 })
 right.addEventListener('mouseup',()=>{
@@ -157,7 +157,7 @@ right.addEventListener('mouseup',()=>{
     }
     else{
         current_char ++
-        chars.scrollBy(char[0].getBoundingClientRect().width+5,0)
+        chars.scrollBy(char[0].getBoundingClientRect().width,0)
     }
     
 })
