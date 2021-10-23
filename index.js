@@ -277,10 +277,11 @@ gpscroll.forEach((scrl,i) => {
 })
 
 window.addEventListener('resize',()=>{
+    console.log('resizing')
     const stbg = document.querySelector('.starry__bg')
     stbg.style.width = `${window.innerWidth}px`
     stbg.style.height = `${window.innerHeight}px`
-    char_ctn.scrollTo(0,0)
+    chars.scrollTo(0,0)
     gameplaysongs.scrollTo(0,0)
     current_char = 0
     currentsong = 0
