@@ -7,7 +7,6 @@
     padding:0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 600;
-
 }
 body{
     position:absolute;
@@ -19,7 +18,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // overflow: hidden;
 }
 header{
     position:absolute;
@@ -70,8 +68,6 @@ header{
 }
 .starry__bg{
     position:fixed;
-    // background:red;
-    // transform-origin: right;
     width:100%;
     height:100%;
     transition:.5s;
@@ -80,13 +76,9 @@ header{
         position:absolute;
         width:2px;
         height:2px;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%,-50%);
         background: none;
         border-radius: 100%;
         filter: blur(1px);
-        // box-shadow:10px 0px 0px -5px white;
     }
 }
 .scaler{
@@ -107,8 +99,8 @@ header{
     position:absolute;
     width:100%;
     height:auto;
-    // background:red;
 }
+
 .scroll__sight{
     background:hsl(300,13%,13%);
     width:1px;
@@ -140,9 +132,6 @@ header{
         }
         li:before,li:after{
             font-size:15px;
-            // color:'hsl(300,13%,13%)';
-            
-
         }
         li:after{
             content:var(--beforec);
@@ -156,30 +145,21 @@ header{
             margin-right:10px;
             color: var(--beforecolor);
             pointer-events: none;
-            
-            // left:0;
             content:var(--afterc);
-            // margin-bottom:30px;
         }
     }
 
 }
 
-
-
 .scroll__container{
     position:absolute;
-    // top:0;
-    // background:red;
     width:100%;
     height:100%;
-    // background:red;
     display:flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-direction: column;
-    // cursor:pointer;
 }
 .section{
     min-height:100% !important;
@@ -196,7 +176,6 @@ header{
     transform: scale(1,1) translateY(5%);
 
     width:100%;
-    // height:85%;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -244,10 +223,7 @@ header{
     display:flex;
     align-items: center;
     justify-content: center;
-    // background:purple;
     .scroll{
-        // position:absolute;
-        // left:10%;
         height:50px;
         width:100px;
         opacity:1;
@@ -271,19 +247,16 @@ header{
         display:flex;
         user-select: none;
         z-index:100;
-        // background:green;
     }
     .character{
         display:inline-flex;
         min-width:100%;
         height:100%;
-        // background:grey;
         img,.shader,.other,.description{
             position:absolute;
         }
         img{
             top:50%;
-            // transform:translateY(-50%);
             width:90%;
             height:90%;
             object-fit: contain;
@@ -291,14 +264,6 @@ header{
         .char__img{
             transform:translate(10%,-50%);
         }
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
-        // DEAL WITH CHARACTER BG SHADOW OVERLAY
         .char__bg{
             position:relative;
             top:25%;
@@ -394,9 +359,6 @@ header{
         height:50px;
         width:100px;
         transition: .5s;
-        // pointer-events: none;
-
-
     }
     .end{
         color:grey;
@@ -415,20 +377,13 @@ header{
     }
     
     .songs{
-        // position:relative;
         display:flex;
-       
         width:80%;
         height:100%;
-        // height:50%;
         overflow: hidden;
         opacity:1;
         scroll-behavior: smooth;
-        // pointer-events: none;
-        // background:green;
-
         .song{
-            // position:absolute;
             min-width:100%;
             max-height:100%;
             filter: blur(5px);
@@ -437,13 +392,10 @@ header{
             background-repeat: no-repeat;
             background-position: center;
             img{
-                // position:absolute;
                 width:100%;
                 max-height:20%;
                 object-fit: contain;
-                // background-position: top;
                 background-size: 10%;
-    
             }
         }
     }
@@ -454,7 +406,6 @@ header{
     position:absolute;
     width:100%;
     height:100%;
-    // background:red;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -472,9 +423,7 @@ header{
         z-index:1;
         width:20%;
         height:auto;
-        // background:green;
         display:flex;
-
         flex-direction: column;
         text-align: center;
         *{
@@ -482,7 +431,6 @@ header{
         }
         p{
             font-weight: 100;
-
         }
         .buttons{
             display: flex;
@@ -492,7 +440,6 @@ header{
         }
         img{
             position:unset;
-
         }
 
     }
@@ -501,7 +448,6 @@ header{
 .contact{
     position:absolute;
     top:0;
-    // background:darkblue;
     display:flex;
     justify-content: center;
     align-items: center;

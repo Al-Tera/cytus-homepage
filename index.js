@@ -127,9 +127,10 @@ const char = document.querySelectorAll('.character')
 
 
 let current_char = 0
+let scroll_timer = 750
 left.addEventListener('mouseup',()=>{
     char_ctn.style.pointerEvents = 'none'
-    setTimeout(() => char_ctn.style.pointerEvents = 'fill', 750)
+    setTimeout(() => char_ctn.style.pointerEvents = 'fill', scroll_timer)
     if(current_char == 0){
         current_char = char.length-1
         chars.style.scrollBehavior = 'unset'
@@ -145,7 +146,7 @@ left.addEventListener('mouseup',()=>{
 })
 right.addEventListener('mouseup',()=>{
     char_ctn.style.pointerEvents = 'none'
-    setTimeout(() => char_ctn.style.pointerEvents = 'fill', 750)
+    setTimeout(() => char_ctn.style.pointerEvents = 'fill', scroll_timer)
     if(current_char == char.length-2){
         current_char=0
         chars.scrollBy(char[0].getBoundingClientRect().width,0)
@@ -153,7 +154,7 @@ right.addEventListener('mouseup',()=>{
             chars.style.scrollBehavior = 'unset'
             chars.scrollTo(0,0)
             chars.style.scrollBehavior = 'smooth'
-        },500)
+        },scroll_timer)
     }
     else{
         current_char ++
@@ -254,7 +255,7 @@ gpscroll.forEach((scrl,i) => {
     scrl.addEventListener('mouseup',()=>{
 
         gameplay.style.pointerEvents = 'none'
-        setTimeout(() => gameplay.style.pointerEvents = 'fill', 750)
+        setTimeout(() => gameplay.style.pointerEvents = 'fill', scroll_timer)
         if(i==0){
             currentsong = currentsong!=0 ? currentsong-1 : currentsong 
             gameplaysongs.scrollBy(-gpsongs[0].getBoundingClientRect().width, 0)
@@ -263,17 +264,13 @@ gpscroll.forEach((scrl,i) => {
             currentsong = currentsong!=gpsongs.length-1 ? currentsong+1 : currentsong
             gameplaysongs.scrollBy(gpsongs[0].getBoundingClientRect().width, 0)
         }
-
-        if(currentsong==gpsongs.length-1){
-            gpscroll[1].classList.add('end')
-        }
-        else if(currentsong==0){
-            gpscroll[0].classList.add('end')
-        }
+        
+        // add and removing style
+        if(currentsong==gpsongs.length-1) gpscroll[1].classList.add('end')
+        else if(currentsong==0) gpscroll[0].classList.add('end')
         else{
             gpscroll[0].classList.remove('end')
             gpscroll[1].classList.remove('end')
-
         }
 
     })
