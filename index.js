@@ -47,7 +47,7 @@ let newtext3 =['Humans have redefined the "net" and how we interact with it.',
 const foreignText = "!@#$%^&*()_+-=?/\[]{};:'<>,."
 
 
-// Create foreign Array with respect to 'new text' length
+// Create foreign Array with respect to 'newtext' length
 const arrayCreator = (txt) =>{
     const foreignText = "!@#$%^&*()_+-=?/\[]{};:'<>,."
 
@@ -62,20 +62,15 @@ const arrayCreator = (txt) =>{
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
-    // While there remain elements to shuffle...
     while (currentIndex != 0) {
-  
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+      [array[currentIndex], array[randomIndex]] = 
+      [array[randomIndex], array[currentIndex]];
     }
-  
     return array;   
 }
+
 var a = 0
 var b = 0
 var c = 0
@@ -277,7 +272,6 @@ gpscroll.forEach((scrl,i) => {
 })
 
 window.addEventListener('resize',()=>{
-    console.log('resizing')
     const stbg = document.querySelector('.starry__bg')
     stbg.style.width = `${window.innerWidth}px`
     stbg.style.height = `${window.innerHeight}px`
