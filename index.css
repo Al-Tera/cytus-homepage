@@ -99,8 +99,17 @@ header ul li:nth-child(4) {
   height: 100%;
   -webkit-transition: .5s;
   transition: .5s;
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .starry__bg .blurry__circle {

@@ -1,14 +1,19 @@
 const starrybg = document.querySelector(".starry__bg")
 const blurrystar = document.querySelector(".blurry__circle")
 let shadowList = []
-for(i=0; i<300; i++){
-    var randX = Math.floor(Math.random()*starrybg.clientWidth-100) +50
-    var randY = Math.floor(Math.random()*starrybg.clientHeight-100) + 50
-    var randSize = Math.floor(Math.random()*5)-3
-    shadowList.push([`${randX}px ${randY}px 0px ${randSize}px white`])
-}
 
-blurrystar.style.boxShadow = shadowList.join(', ')
+const setShadowBorder = () => {
+    shadowList = []
+    for(i=0; i<300; i++){
+        var randX = Math.floor((Math.random()*starrybg.clientWidth)-(starrybg.clientWidth/2))
+        var randY = Math.floor(Math.random()*starrybg.clientHeight-(starrybg.clientHeight/2)) 
+        var randSize = Math.floor(Math.random()*5)-3
+        shadowList.push([`${randX}px ${randY}px 0px ${randSize}px white`])
+    }
+    blurrystar.style.boxShadow = shadowList.join(', ')
+}
+setShadowBorder()
+
 const scaler = document.querySelectorAll('.scaler')
 let scaleValue = 1
 
@@ -180,23 +185,19 @@ const scrollbtn = document.querySelectorAll('.scroll__button')
 let activeColor = 'hsl(297,100%,87%)'
 let inactiveColor = 'hsl(300,13%,13%)'
 
-window.addEventListener('wheel', function(event){
+window.addEventListener('wheel', function(e){
     if(timer !== null) {
         clearTimeout(timer);        
     }
     timer = setTimeout(function() {
         let beforesect = currentsect
 
-        if (event.deltaY < 0){
-            if(currentsect != 0){
-                currentsect--; scrolling = true
-            }
+        if (e.deltaY < 0){
+            if(currentsect != 0){ currentsect--; scrolling = true }
             else scrolling = false
         }
-        else if (event.deltaY > 0){
-            if(currentsect != section.length-1){
-                scrolling = true; currentsect++
-            }
+        else if (e.deltaY > 0){
+            if(currentsect != section.length-1){ scrolling = true; currentsect++ }
             else scrolling = false
         }
         if(scrolling){
@@ -272,11 +273,9 @@ gpscroll.forEach((scrl,i) => {
 })
 
 window.addEventListener('resize',()=>{
-    const stbg = document.querySelector('.starry__bg')
-    stbg.style.width = `${window.innerWidth}px`
-    stbg.style.height = `${window.innerHeight}px`
     chars.scrollTo(0,0)
     gameplaysongs.scrollTo(0,0)
     current_char = 0
     currentsong = 0
+    setShadowBorder()
 })
