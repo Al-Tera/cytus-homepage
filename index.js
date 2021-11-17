@@ -201,19 +201,14 @@ window.addEventListener('wheel', function(e){
             else scrolling = false
         }
         if(scrolling){
-                let particlesize = parseFloat(starrybg.style.transform.split(/[a-z(), ]/g).filter(e=>e))
                 section[currentsect].style.opacity = 1
                 section[currentsect].style.transform = 'scale(1,1)'
                 section[currentsect].style.pointerEvents = 'fill'
                 section[beforesect].style.opacity = 0
-                if(beforesect>currentsect){
-                    starrybg.style.transform = `scale(${particlesize-.2},${particlesize-.2})`
-                    section[beforesect].style.transform = 'scale(1.7,1.7)'
-                }
-                else{
-                    starrybg.style.transform = `scale(${particlesize+.2},${particlesize+.2})`
-                    section[beforesect].style.transform = 'scale(.7,.7)'
-                }
+                starrybg.style.transform = `scale(${((currentsect*2)/10)+1},${((currentsect*2)/10)+1})`
+
+                if(beforesect>currentsect) section[beforesect].style.transform = 'scale(1.7,1.7)'
+                else section[beforesect].style.transform = 'scale(.7,.7)'
                 
                 section[beforesect].style.pointerEvents = 'none'
                 scrollbtn[currentsect].style.setProperty('--beforecolor', activeColor)
@@ -229,7 +224,9 @@ scrollbtn.forEach((item,i)=>{
     item.addEventListener('mouseup',()=>{
         let beforesect = currentsect
         currentsect = i
+
         if(beforesect!=currentsect){
+            starrybg.style.transform = `scale(${((i*2)/10)+1},${((i*2)/10)+1})`
             section[currentsect].style.opacity = 1
             section[currentsect].style.transform = 'scale(1,1)'
             section[currentsect].style.pointerEvents = 'fill'
